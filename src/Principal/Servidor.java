@@ -9,11 +9,11 @@ public class Servidor {
     public static void main(String[] args) {
         int puerto = 8080;
         try (ServerSocket servidor = new ServerSocket(puerto)) {
-            System.out.println("Servidor Concurrente iniciado en puerto " + puerto);
+            System.out.println("Servidor iniciado en puerto " + puerto);
 
             while (true) {
                 Socket socketCliente = servidor.accept();
-                System.out.println("Nuevo ingeniero conectado: " + socketCliente.getInetAddress());
+                System.out.println("Nuevo cliente conectado: " + socketCliente.getInetAddress());
 
                 new ManejadorCliente(socketCliente).start();
             }
@@ -22,3 +22,4 @@ public class Servidor {
         }
     }
 }
+
